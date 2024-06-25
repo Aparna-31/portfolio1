@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from "react-router-dom";
+
 import styled from 'styled-components';
 import {Link as LinkR} from 'react-router-dom';
 
@@ -50,13 +50,57 @@ cursor: pointer;
 color: ${({theme})=> theme.text_primary};
 }
 `;
-
-
-
-
-
-
-
+const NavItem = styled.ul`
+width: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 32px;
+list-style: none;
+@media screen and (max-width: 768px){
+    display: none;
+}
+`;
+const NavLinks = styled.a`
+color: ${({theme})=> theme.text_primary};
+font-weight: 500;
+cursor: pointer;
+text-decoration: none;
+trasition: all 0.2s ease-in-out;
+&:hover{
+    color: ${({theme})=> theme.primary};
+}
+`;
+const ButtonContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: end;
+width: 100px;
+height: 100%;
+padding: 0 6px;
+@media screen and (max-width: 640px){
+    display: none;
+}
+`;
+const GitHubButton = styled.button`
+border: 1.8px solid ${({theme})=> theme.primary};
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0px 20px;
+font-size: 1rem;
+font-weight: 500;
+cursor: pointer;
+height: 70%;
+:hover{
+ background-color: ${({theme})=> theme.primary};
+    color: ${({theme})=> theme.text_light};
+}
+    @media screen and (max-width: 640px){
+     font-size: 0.8rem;
+    }
+`;
 const Navbar = () => {
   return <Nav>
     <NavContainer>

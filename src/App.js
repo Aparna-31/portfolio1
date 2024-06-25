@@ -5,6 +5,12 @@ import { darkTheme } from './utils/Theme';
 import Navbar from './components/Navbar';
 import Herosection from './components/Herosection';
 import Skill from './components/Skill';
+import Education from './components/Education';
+// import {Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 const Body = styled.div`
    background-color: ${({theme})=> theme.bg}; 
    width: 100%;
@@ -30,15 +36,18 @@ const Body = styled.div`
 function App() {
   return (
      <ThemeProvider theme={darkTheme}>
-    <Navbar/>
-     <Body> 
+      <Router>
+      <Navbar/>
+      <Body> 
       <Herosection/>
       <Wrapper>
         
-        <Skill/>
+      <Skill/>
+      <Education/>
       </Wrapper>
      </Body>
-     </ThemeProvider>
+     </Router>
+    </ThemeProvider>
     
   );
 }
