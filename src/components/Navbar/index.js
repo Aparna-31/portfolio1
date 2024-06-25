@@ -2,6 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components';
 import {Link as LinkR} from 'react-router-dom';
+import {DiCssdeck} from 'react-icons/di';
 
 const Nav =styled.div`
 background-color: ${({theme})=> theme.card_light};
@@ -83,6 +84,8 @@ padding: 0 6px;
 }
 `;
 const GitHubButton = styled.button`
+background-color: transparent;
+color: ${({theme})=> theme.primary};
 border: 1.8px solid ${({theme})=> theme.primary};
 border-radius: 20px;
 display: flex;
@@ -93,22 +96,43 @@ font-size: 1rem;
 font-weight: 500;
 cursor: pointer;
 height: 70%;
-:hover{
- background-color: ${({theme})=> theme.primary};
-    color: ${({theme})=> theme.text_light};
+&:hover{
+    background-color: ${({theme})=> theme.primary};
+    color: ${({theme})=> theme.white};
 }
     @media screen and (max-width: 640px){
      font-size: 0.8rem;
     }
 `;
+export const Span = styled.div`
+ padding: 0 6px;
+ font-weight: 500;
+ font-size: 1.5rem;
+`;
+
+
+
+
+
 const Navbar = () => {
   return <Nav>
     <NavContainer>
-        <NavLogo>Logo</NavLogo>
+        <NavLogo to='/'>
+        <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
+            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
+          </a>
+
+
+
+        </NavLogo>
         <MobileIcon></MobileIcon>
         
             <NavItem>
-                <NavLinks>Home</NavLinks>
+                <NavLinks href= "#about">About</NavLinks>
+                <NavLinks href= "#skills">Skills</NavLinks>
+                <NavLinks href= "#experience">Experience</NavLinks>
+                <NavLinks href= "#projects">Projects</NavLinks>
+                <NavLinks href= "#education">Education</NavLinks>
             </NavItem>
             <ButtonContainer><GitHubButton>GitHub Profile</GitHubButton></ButtonContainer>
     </NavContainer>
